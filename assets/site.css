@@ -1,0 +1,111 @@
+/* Calstead Studios: Plum dusk. One stylesheet for every page. */
+@font-face { font-family: "Onest"; font-weight: 400; font-display: swap; src: url("fonts/onest-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Onest"; font-weight: 500; font-display: swap; src: url("fonts/onest-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Onest"; font-weight: 700; font-display: swap; src: url("fonts/onest-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+  --dusk: #1A0B3D;
+  --night: #3B1C8C;
+  --plum: #6A2BB8;
+  --uv: #8E3CFF;
+  --glow: #B07CFF;
+  --lilac: #B49CFF;
+  --lavender: #EBDFFF;
+  --deep: #130830;
+  --line: rgba(180, 156, 255, 0.22);
+  --gutter: clamp(20px, 5vw, 64px);
+  --measure: 34rem;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--dusk);
+  color: var(--lavender);
+  font-family: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--lavender); text-underline-offset: 0.2em; text-decoration-thickness: 1px; text-decoration-color: var(--lilac); }
+a:hover { text-decoration-color: var(--lavender); }
+a:focus-visible, .button:focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; border-radius: 6px; }
+
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.75rem, 8vw, 5.75rem); }
+h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); }
+h3 { font-size: 1.375rem; letter-spacing: -0.02em; line-height: 1.2; }
+p { margin: 0; max-width: var(--measure); }
+.soft { color: var(--lilac); }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* Top bar: the lockup and three links. */
+.bar { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 10px; padding-bottom: 10px; }
+.bar .logo img { height: 72px; width: auto; margin-left: -18px; }
+.bar nav { display: flex; gap: clamp(16px, 3vw, 32px); }
+.bar nav a { text-decoration: none; font-weight: 500; font-size: 1rem; padding: 8px 0; }
+.bar nav a:hover { text-decoration: underline; text-decoration-color: var(--glow); }
+
+/* The opening: the brand's waves, full width, with the words on the dark band between them. */
+.open { position: relative; min-height: min(100svh, 860px); display: flex; align-items: center; overflow: hidden; background: var(--dusk); }
+.open .waves { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.open .wrap { position: relative; width: 100%; padding-top: 120px; padding-bottom: 150px; }
+.open p { font-size: clamp(1.125rem, 2vw, 1.375rem); line-height: 1.5; margin-top: 28px; max-width: 30rem; }
+.open h1 { max-width: 11ch; }
+
+/* The light under the roof, from the mark: it comes on once as the page opens. */
+.light { display: inline-block; width: 0.34em; height: 0.34em; border-radius: 50%; background: var(--glow); box-shadow: 0 0 0.5em 0.12em rgba(176, 124, 255, 0.55); margin-left: 0.12em; vertical-align: 0.02em; animation: come-on 1.4s ease-out 0.3s both; }
+@keyframes come-on { from { opacity: 0; box-shadow: 0 0 0 0 rgba(176, 124, 255, 0); } to { opacity: 1; } }
+
+section { padding: clamp(72px, 11vw, 136px) 0; }
+.deep { background: var(--deep); }
+
+/* Fatside: its own night-green screen sits on the plum, the one other color on the page. */
+.app { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: clamp(32px, 6vw, 88px); align-items: center; }
+.app .words > * + * { margin-top: 20px; }
+.app .words h2 + p { margin-top: 24px; font-size: 1.25rem; line-height: 1.5; }
+.phone { height: auto; border-radius: 36px; border: 6px solid #2A1A5E; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45); width: 100%; aspect-ratio: 9 / 16; object-fit: cover; }
+.status { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 0.9375rem; font-weight: 500; color: var(--lilac); }
+.facts { list-style: none; padding: 0; margin: 28px 0 0; border-top: 1px solid var(--line); max-width: var(--measure); }
+.facts li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.links { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(24px, 6vw, 88px); align-items: start; }
+.two .body > * + * { margin-top: 18px; }
+
+.button { display: inline-block; background: var(--lavender); color: var(--dusk); font-weight: 700; text-decoration: none; padding: 14px 24px; border-radius: 999px; font-size: 1.125rem; letter-spacing: -0.01em; }
+.button:hover { background: #fff; }
+
+footer { position: relative; overflow: hidden; background: var(--deep); padding: 56px 0 120px; font-size: 0.9375rem; color: var(--lilac); }
+footer .waves { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 150px; object-fit: cover; object-position: bottom; }
+footer .wrap { position: relative; display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
+footer a { color: var(--lilac); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+/* Legal pages: one readable column. */
+.doc { padding-top: 140px; padding-bottom: 96px; }
+.doc .wrap { max-width: 46rem; }
+.doc h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); margin-bottom: 12px; }
+.doc h2 { font-size: 1.5rem; letter-spacing: -0.02em; line-height: 1.2; margin: 44px 0 12px; }
+.doc p, .doc li { max-width: none; color: #DCCDFB; }
+.doc p + p { margin-top: 14px; }
+.doc ul { padding-left: 1.2em; margin: 12px 0; }
+.doc li + li { margin-top: 10px; }
+.doc h1 + p { color: var(--lilac); }
+.back { display: inline-block; margin-bottom: 32px; font-weight: 500; }
+
+@media (max-width: 760px) {
+  .app, .two { grid-template-columns: minmax(0, 1fr); }
+  .app .shot { max-width: 260px; }
+  .bar .logo img { height: 60px; margin-left: -14px; }
+  .bar nav a { font-size: 0.9375rem; }
+  .open .wrap { padding-bottom: 120px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .light { animation: none; }
+}
