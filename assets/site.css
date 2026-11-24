@@ -47,7 +47,7 @@ p { margin: 0; max-width: var(--measure); }
 .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 10px; padding-bottom: 10px; }
 .bar .logo img { height: 72px; width: auto; margin-left: -18px; }
 .bar nav { display: flex; gap: clamp(16px, 3vw, 32px); }
-.bar nav a { text-decoration: none; font-weight: 500; font-size: 1rem; padding: 8px 0; }
+.bar nav a { text-decoration: none; font-weight: 500; font-size: 1rem; padding: 8px 0; white-space: nowrap; }
 .bar nav a:hover { text-decoration: underline; text-decoration-color: var(--glow); }
 
 /* The opening: the brand's waves, full width, with the words on the dark band between them. */
@@ -99,11 +99,41 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .doc h1 + p { color: var(--lilac); }
 .back { display: inline-block; margin-bottom: 32px; font-weight: 500; }
 
+
+/* Our work, and each product's own page. */
+.over { margin-bottom: clamp(32px, 5vw, 56px); }
+.name { font-size: clamp(2rem, 4.5vw, 3.25rem); letter-spacing: -0.03em; line-height: 1.05; }
+.cta { margin-top: 28px; }
+.next { margin-top: clamp(40px, 6vw, 72px); padding-top: 24px; border-top: 1px solid var(--line); max-width: none; }
+.small { font-size: 0.9375rem; }
+.big { font-size: clamp(1.375rem, 2.6vw, 1.75rem); line-height: 1.3; }
+.facts b { font-weight: 700; }
+.shot a { display: block; border-radius: 36px; }
+.lead { padding-top: clamp(140px, 16vw, 190px); }
+.lead h1 { font-size: clamp(3.25rem, 9vw, 6rem); }
+.steps { list-style: none; padding: 0; margin: clamp(32px, 5vw, 56px) 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); counter-reset: step; }
+.steps li { counter-increment: step; }
+.steps .phone { border-radius: 28px; border-width: 5px; margin-bottom: 24px; }
+.steps h3::before { content: counter(step) ". "; color: var(--lilac); }
+.steps p { margin-top: 10px; color: #DCCDFB; }
+.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 460px); align-items: start; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.pair .phone { border-radius: 26px; border-width: 5px; }
+.pair .phone + .phone { margin-top: 44px; }
+
 @media (max-width: 760px) {
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  .steps li { display: grid; grid-template-columns: 120px minmax(0, 1fr); column-gap: 20px; align-items: start; }
+  .steps .phone { grid-row: span 2; margin-bottom: 0; border-radius: 18px; border-width: 3px; }
+  .steps h3 { align-self: end; }
+  .flip { grid-template-columns: minmax(0, 1fr); }
+  .pair { max-width: 360px; }
   .app, .two { grid-template-columns: minmax(0, 1fr); }
   .app .shot { max-width: 260px; }
   .bar .logo img { height: 60px; margin-left: -14px; }
   .bar nav a { font-size: 0.9375rem; }
+  .bar nav { gap: 14px; }
+  .bar .logo img { height: 52px; margin-left: -12px; }
   .open .wrap { padding-bottom: 120px; }
 }
 @media (prefers-reduced-motion: reduce) {
