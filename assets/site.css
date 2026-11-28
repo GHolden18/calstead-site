@@ -145,15 +145,5 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .gallery { width: 100%; height: auto; border-radius: 28px; border: 6px solid #2A1A5E; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45); }
 @media (max-width: 760px) { .shot .gallery { max-width: 420px; } }
 
-/* Our work with more than one product: a card for each, side by side (Gabe's pick, Nov 28). */
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 5vw, 64px); }
-.card { display: block; text-decoration: none; color: inherit; border-radius: 28px; }
-.card .phone { max-width: 280px; margin-bottom: 28px; }
-.card > * + * { margin-top: 16px; }
-.card .more { display: inline-block; font-weight: 700; text-decoration: underline; text-decoration-color: var(--lilac); text-underline-offset: 0.2em; }
-.card:hover .more { text-decoration-color: var(--lavender); }
-.card:focus-visible { outline: 3px solid var(--glow); outline-offset: 6px; }
-@media (max-width: 760px) {
-  .cards { grid-template-columns: minmax(0, 1fr); gap: 72px; }
-  .card .phone { max-width: 260px; }
-}
+/* Our work with more than one product: the same block for each, newest first, a hairline between (Gabe, Nov 28). */
+.split { border-top: 1px solid var(--line); margin: clamp(64px, 9vw, 112px) 0; }
